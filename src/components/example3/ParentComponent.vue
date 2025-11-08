@@ -1,0 +1,28 @@
+<!-- ParentComponent.vue -->
+<template>
+  <div>
+    <ChildComponent :message="parentMessage" @custom-event="handleEvent" />
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import ChildComponent from "./ChildComponent.vue";
+
+export default defineComponent({
+  name: "E05ParentComponent",
+  data() {
+    return {
+      parentMessage: "Hello from parent",
+    };
+  },
+  methods: {
+    handleEvent(payload: unknown) {
+      console.log(payload);
+    },
+  },
+  components: {
+    ChildComponent,
+  },
+});
+</script>
